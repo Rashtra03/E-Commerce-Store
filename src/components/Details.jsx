@@ -39,20 +39,21 @@ const Details = () => {
     };
 
     return product ? (
-        <div className="w-full min-h-screen py-16 px-4 md:px-8 flex items-center justify-center relative">
+        <div className="w-full min-h-screen py-8 md:py-16 px-4 md:px-8 flex flex-col items-center justify-center gap-4">
             
-            <button 
-                onClick={() => navigate(-1)} 
-                className="absolute top-8 left-8 md:left-12 flex items-center gap-2 text-sm text-slate-600 hover:text-slate-800 transition-colors duration-200 cursor-pointer bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm hover:bg-slate-50"
-            >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Go Back
-            </button>
+            <div className="w-full max-w-5xl flex justify-start">
+                <button 
+                    onClick={() => navigate(-1)} 
+                    className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-800 transition-colors duration-200 cursor-pointer bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm hover:bg-slate-50"
+                >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Go Back
+                </button>
+            </div>
 
-           
-            <div className="w-full max-w-5xl glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row p-6 md:p-10 gap-8 md:gap-12 mt-8 md:mt-0">
+            <div className="w-full max-w-5xl glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row p-6 md:p-10 gap-8 md:gap-12">
                 
                 <div className="w-full md:w-[45%] h-[350px] md:h-[450px] bg-white rounded-2xl p-8 flex items-center justify-center border border-slate-100 shadow-sm relative group shrink-0">
                     <img 

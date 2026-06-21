@@ -82,20 +82,21 @@ const Edit = () => {
     const existingCategories = products ? [...new Set(products.map(p => p.category))] : [];
 
     return (
-        <div className="w-full min-h-screen py-16 px-4 flex items-center justify-center relative bg-blue-50/30">
+        <div className="w-full min-h-screen py-8 md:py-16 px-4 flex flex-col items-center justify-center gap-4 bg-blue-50/30">
             
-            <button 
-                onClick={() => navigate(-1)} 
-                className="absolute top-8 left-8 md:left-12 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors duration-200 cursor-pointer bg-white px-4 py-2 rounded-xl border border-blue-200 shadow-sm hover:bg-blue-50/50 hover:border-blue-400"
-            >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Go Back
-            </button>
+            <div className="w-full max-w-xl flex justify-start">
+                <button 
+                    onClick={() => navigate(-1)} 
+                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors duration-200 cursor-pointer bg-white px-4 py-2 rounded-xl border border-blue-200 shadow-sm hover:bg-blue-50/50 hover:border-blue-400"
+                >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Go Back
+                </button>
+            </div>
 
-            
-            <div className="w-full max-w-xl bg-white border border-blue-100 rounded-2xl p-8 md:p-10 mt-8 md:mt-0 shadow-md">
+            <div className="w-full max-w-xl bg-white border border-blue-100 rounded-2xl p-8 md:p-10 shadow-md">
                 <div className="mb-8">
                     <h1 className="text-2xl md:text-3xl font-display font-bold text-blue-900 tracking-tight">
                         Edit Product

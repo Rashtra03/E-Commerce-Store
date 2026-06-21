@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ProductContext } from '../utils/Context';
 import { Link, useSearchParams } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({ isOpen, setIsOpen }) => {
     const { products } = useContext(ProductContext);
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -30,24 +30,50 @@ const Nav = () => {
             newParams.delete(key);
         }
         setSearchParams(newParams);
+        if (setIsOpen) setIsOpen(false);
     };
 
     const clearFilters = () => {
         setSearchParams({});
+        if (setIsOpen) setIsOpen(false);
     };
 
     return (
-        <nav className="w-80 h-screen glass-panel border-r border-slate-200/60 p-6 flex flex-col justify-between sticky top-0 shrink-0">
-            <div className="flex flex-col gap-6">
-                
-                <div className="flex items-center gap-3 py-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center font-display font-extrabold text-white shadow-md shadow-indigo-600/20">
-                        S
+        <>
+            {/* Sidebar drawer backdrop for mobile */}
+            {isOpen && (
+                <div 
+                    className="md:hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 transition-opacity duration-300"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
+
+            <nav className={`
+                w-80 h-screen glass-panel border-r border-slate-200/60 p-6 flex flex-col justify-between
+                fixed md:sticky top-0 left-0 z-50 shrink-0 transform md:transform-none transition-transform duration-300 ease-in-out
+                ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+            `}>
+                <div className="flex flex-col gap-6">
+                    
+                    <div className="flex items-center justify-between py-2">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center font-display font-extrabold text-white shadow-md shadow-indigo-600/20">
+                                S
+                            </div>
+                            <span className="text-xl font-display font-bold tracking-tight text-slate-800">
+                                Sasta<span className="text-blue-500">Bajaar</span>
+                            </span>
+                        </div>
+                        {/* Close button for mobile */}
+                        <button 
+                            onClick={() => setIsOpen(false)}
+                            className="md:hidden p-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-500 active:scale-[0.98]"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
-                    <span className="text-xl font-display font-bold tracking-tight text-slate-800">
-                        Sasta<span className="text-blue-500">Bajaar</span>
-                    </span>
-                </div>
 
                 
                 <div className="flex flex-col gap-2">
@@ -68,6 +94,7 @@ const Nav = () => {
                     
                     <Link
                         to="/create"
+                        onClick={() => setIsOpen && setIsOpen(false)}
                         className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-blue-500 hover:bg-blue-500 text-white font-semibold text-sm transition-colors duration-200 shadow-sm border border-blue-500/10 active:scale-[0.98]"
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -143,6 +170,7 @@ const Nav = () => {
                 )}
             </div>
         </nav>
+        </>
     );
 };
 

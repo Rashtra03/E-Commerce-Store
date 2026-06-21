@@ -58,14 +58,17 @@ const Create = () => {
     };
 
     return (
-        <div className="w-full min-h-screen py-12 px-4 flex flex-col items-center justify-center bg-slate-50">
+        <div className="w-full min-h-screen py-8 md:py-12 px-4 flex flex-col items-center justify-center gap-4 bg-slate-50">
             
-            <div className="w-full max-w-md mb-4 flex justify-start">
+            <div className="w-full max-w-md flex justify-start">
                 <button 
                     onClick={() => navigate(-1)} 
-                    className="text-sm text-slate-500 hover:text-blue-600 transition-colors duration-150 flex items-center gap-1 font-medium cursor-pointer"
+                    className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-800 transition-colors duration-200 cursor-pointer bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm hover:bg-slate-50"
                 >
-                    &larr; Back
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Go Back
                 </button>
             </div>
 

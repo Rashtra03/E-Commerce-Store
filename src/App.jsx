@@ -9,7 +9,7 @@ const App = () => {
   const { search, pathname } = useLocation();
   
   return (
-    <div className="min-h-screen w-screen bg-slate-50 text-slate-800 flex flex-col font-sans relative overflow-x-hidden">
+    <div className="min-h-screen w-full bg-slate-50 text-slate-800 flex flex-col font-sans relative overflow-x-hidden">
       
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none -z-10 animate-pulse-slow"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/5 blur-[120px] pointer-events-none -z-10 animate-pulse-slow" style={{ animationDelay: '4s' }}></div>
